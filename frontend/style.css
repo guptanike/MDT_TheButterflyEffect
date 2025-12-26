@@ -1,0 +1,101 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    padding: 30px;
+}
+
+/* Main container */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Labels */
+.label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    color: #333;
+}
+
+/* Dropdown & Button */
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+/* Dropdown */
+select {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Button */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Output section */
+.output {
+    margin-top: 25px;
+    background-color: #eef2f5;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Result text */
+#pattern,
+#impact,
+#explanation {
+    margin-top: 8px;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}

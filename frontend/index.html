@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Micro Decision Taker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            margin-top: 25px;
+            background: #eef2f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Micro Decision Taker</h1>
+        <p><b>Based on Butterfly Effect</b></p>
+    
+        <!-- Decision Select -->
+        <label class="label">Choose a Micro Decision:</label>
+        <select id="decisionSelect">
+            <option value="">-- Select Decision --</option>
+            <option value="D1">Sleeping Late</option>
+            <option value="D2">Low Study Time</option>
+            <option value="D3">Excess Social Media</option>
+            <option value="D4">Skipping Exercise</option>
+            <option value="D5">Eating Junk Food</option>
+        </select>
+    
+        <!-- Frequency Input -->
+        <label for="frequency">Frequency (hours):</label>
+        <input type="number" id="frequency" placeholder="e.g. 6" min="1" required>
+    
+        <!-- Time Period Input -->
+        <label for="time_period">Time Period (days):</label>
+        <input type="number" id="time_period" placeholder="e.g. 30" min="1" required>
+    
+        <!-- Button -->
+        <button onclick="analyzeDecision()">Analyze Decision</button>
+    
+        <!-- Output -->
+        <div class="output" id="result" style="display:none;">
+            <p class="label">Detected Pattern:</p>
+            <p id="pattern"></p>
+    
+            <p class="label">Explanation:</p>
+            <p id="explanation"></p>
+
+            <p class="label">Butterfly Effect (Impact × Frequency × Time):</p>
+            <p id="butterflyIntensity"></p>
+
+            <p class="label">Micro Impact Breakdown:</p>
+            <p id="impact"></p>
+      
+            <p class="label">Impact Graph:</p>
+            <canvas id="impactChart"></canvas>
+        </div>
+    </div>    
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
