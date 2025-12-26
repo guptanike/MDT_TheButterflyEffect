@@ -3,12 +3,19 @@ function analyzeDecision() {
     const decision = document.getElementById("decisionSelect").value;
     const frequency = document.getElementById("frequency").value;
     const time_period = document.getElementById("time_period").value;
+    const dreamJob = document.getElementById("dreamJob").value;
 
     // Validation
     if (!decision) {
         alert("Please select a decision first.");
         return;
     }
+
+    if (!dreamJob) {
+        alert("Please enter your dream job.");
+        return;
+    }
+    
     if (!frequency || !time_period) {
         alert("Please enter frequency (hours) and time period (days).");
         return;
@@ -23,7 +30,8 @@ function analyzeDecision() {
         body: JSON.stringify({
             decision_id: decision,
             frequency: frequency,
-            time_period: time_period
+            time_period: time_period,
+            dream_job: dreamJob
         })        
     })
     .then(response => {
@@ -35,6 +43,12 @@ function analyzeDecision() {
     .then(data => {
         // Show result container
         document.getElementById("result").style.display = "block";
+
+        document.getElementById("capability").innerText =
+            "Capability: " + data.capability_percent + "%";
+
+        document.getElementById("advice").innerText =
+                "Advice: " + data.advice;
 
         // Pattern
         document.getElementById("pattern").innerText = data.pattern;
@@ -48,8 +62,14 @@ function analyzeDecision() {
 
         // Explanation
         document.getElementById("explanation").innerText = data.explanation;
+
+        // Dream Job Analysis (Harsh / Reverse Psychology)
+        document.getElementById("dreamAnalysis").innerText =
+            `${data.advice} (Capability Score: ${data.capability_score})`;
+
         document.getElementById("butterflyIntensity").innerText =
         data.butterfly_intensity;
+        
         // -------- GRAPH CODE START --------
 
         // Labels and values from backend
@@ -63,6 +83,7 @@ function analyzeDecision() {
 
         // Get canvas context
         const ctx = document.getElementById("impactChart").getContext("2d");
+        const backgroundColors = values.map(v => v >= 0 ? "rgba(0, 200, 0, 0.6)" : "rgba(200,0,0,0.6)");
 
         // Create bar chart
         impactChart = new Chart(ctx, {
@@ -71,17 +92,17 @@ function analyzeDecision() {
                 labels: labels,
                 datasets: [{
                     label: "Impact Score",
-                    data: values
+                    data: values,
+                    backgroundColor: backgroundColors
                 }]
             },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+            options: { 
+                responsive: true, 
+                scales: { 
+                    y: { 
+                        beginAtZero: true } 
+                    } 
                 }
-            }
         });
 
         // -------- GRAPH CODE END --------

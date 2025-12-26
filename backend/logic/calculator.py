@@ -31,6 +31,31 @@ def calculate_impact(decision_id):
             "health": -3,
             "focus": -2,
             "career": -2
+        },
+        "G1": {  # Consistent Sleep
+            "health": 4,
+            "focus": 3,
+            "career": 2
+        },
+        "G2": {  # Daily Study
+            "health": 1,
+            "focus": 4,
+            "career": 5
+        },
+        "G3": {  # Exercise
+            "health": 5,
+            "focus": 2,
+            "career": 1
+        },
+        "G4": {  # Reading / Learning
+            "health": 1,
+            "focus": 3,
+            "career": 4
+        },
+        "G5": {  # Healthy Diet
+            "health": 4,
+            "focus": 2,
+            "career": 2
         }
     }
 
